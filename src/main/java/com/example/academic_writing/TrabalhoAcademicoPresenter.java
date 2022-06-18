@@ -1,19 +1,8 @@
-package com.example.academic_writing.models;
+package com.example.academic_writing;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.example.academic_writing.models.*;
 
-@Document("trabalho_academico")
-public class TrabalhoAcademico {
-    @Transient
-    public static final String SEQUENCE_NAME = "trabalho_sequence";
-    @Id
-    @Schema(hidden=true)
-    private String _id;
-
-    @Schema(hidden=true)
+public class TrabalhoAcademicoPresenter {
     private long id;
     private Tema tema;
     private Problema problema;
@@ -30,12 +19,22 @@ public class TrabalhoAcademico {
     private TopicoSecundario topicoSecundario;
     private Conclusoes conclusoes;
 
-    public String get_id() {
-        return _id;
-    }
-
-    public void set_id(String _id) {
-        this._id = _id;
+    public TrabalhoAcademicoPresenter(TrabalhoAcademico trabalhoAcademico){
+        this.id = trabalhoAcademico.getId();
+        this.tema = trabalhoAcademico.getTema();
+        this.problema = trabalhoAcademico.getProblema();
+        this.hipoteses = trabalhoAcademico.getHipoteses();
+        this.objetivo = trabalhoAcademico.getObjetivo();
+        this.referencias = trabalhoAcademico.getReferencias();
+        this.contextualizacao = trabalhoAcademico.getContextualizacao();
+        this.estadoDaArte = trabalhoAcademico.getEstadoDaArte();
+        this.lacuna = trabalhoAcademico.getLacuna();
+        this.justificativa = trabalhoAcademico.getJustificativa();
+        this.metodologia = trabalhoAcademico.getMetodologia();
+        this.revisaoDaLiteratura = trabalhoAcademico.getRevisaoDaLiteratura();
+        this.topicoPrincipal = trabalhoAcademico.getTopicoPrincipal();
+        this.topicoSecundario = trabalhoAcademico.getTopicoSecundario();
+        this.conclusoes = trabalhoAcademico.getConclusoes();
     }
 
     public long getId() {
